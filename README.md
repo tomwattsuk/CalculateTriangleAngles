@@ -4,7 +4,7 @@ Thank you for reviewing my technical task
 
 In this repository you'll find: 
 1. triangles.html
-2. A folder structure for the cypress tests
+2. A folder structure for the cypress tests (fully automated from the spreadsheet)
 
 I have also sent over an excel spreadsheet to the recruiter which shows the test cases I have written in Cypress.
 
