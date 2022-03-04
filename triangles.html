@@ -1,0 +1,86 @@
+<html>
+<head>
+<center>
+<title>Triangle Type Finder</title>
+<font face="sans-serif">
+<h2>Triangles</h2>
+</head>
+<body>
+<!--Creating a form with 3 x fields which will pass numeric values into our JS script-->
+<form id="calculateTriangles">
+    <table width="350px" border="3px">
+        <tr>
+            <td>Angle 1</td>
+            <td>
+                <input type="number" id="angle1">
+        </tr>
+        <tr>
+            <td>Angle 2</td>
+            <td>
+                <input type="number" id="angle2">
+			</td>
+        </tr>
+        <tr>
+            <td>Angle 3</td>
+            <td>
+                <input type="number" id="angle3">
+        </tr>
+        <tr>
+            <td>Type of Triangle</td>
+            <td>
+                <p id="typeOfTriangle"></p>
+            </td>
+        </tr>
+    </table>
+	<br>
+	<!--Input buttons to kick off the script below and also to reset the form-->
+    <input type="button" onclick="Calculate()" value="Go">
+	<input type="button" onclick="window.location.href='./triangles.html';" value="Reset">
+	</form>
+	<!--feel free to follow me on socials-->
+	<footer>by Tom Watts</br>
+	<a href="https://www.twitter.com/tomwattsuk">Twitter</a> <a href="https://www.linkedin.com/in/tom-wattsuk/">LinkedIn</a>	
+	</footer>
+
+	<script>
+	//defining the function 
+	function Calculate() {
+	//defining a variable for each number/integer
+	var number1 = document.getElementById("angle1").value;
+	var number2 = document.getElementById("angle2").value;
+    var number3 = document.getElementById("angle3").value;
+	//calculating our total, parasing the numeric values to make the total to be used in the validation underneath
+    var totalOfNumbers =
+        parseInt(number1) + parseInt(number2) + parseInt(number3);
+
+    //two values defined here, our minimum so we can validate to ensure the user inputs a valid value, 0 would be invalid as that means the angle doens't exist and we use the 180 to ensure the overall value isn't over 180
+    var minAmount = 1;
+    var maxAmount = 180;
+
+    //checking if total of the numbers is under or over the vars above
+  if (number1<minAmount || number2<minAmount || number3<minAmount || totalOfNumbers != maxAmount) {
+        message = "Error! You can only enter numbers between 1 and 180"
+    } 
+    //checking for equliateral  
+	else if (number1===number2 && number2===number3) {
+        message = "Equaliateral";
+    } 
+	
+	//checking for Isosceles  
+	else if (number1===number2 || number1===number3 || number2===number3) {
+        message = "Isosceles";
+    } 
+	
+	//checking for scalene 
+	else if (number1!=number2 || number1!=number3 || number2!=number3) {
+        message = "Scalene";
+    } 
+		
+	//using console.log to see the sum of the process during programming
+	//"go" on the form above gets element typeOfTriangle to field Type of Triangle
+    document.getElementById("typeOfTriangle").innerHTML = message;
+	console.log(totalOfNumbers);
+}
+</script>
+</body>
+</html>
